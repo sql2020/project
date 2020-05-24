@@ -44,7 +44,7 @@ create table vip(
 create table posts(
 	post_id varchar(9) primary key,
 	post_date date not null,
-	post_type bool default true,
+	post_type varchar(15) default 'zhuanzai', check (post_type in ('yuanchuang','zhuanzai')),
 	post_content varchar(30) not null
 );
 
