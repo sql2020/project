@@ -160,7 +160,7 @@ create table posting(
 --become_vip
 create table become_vip(
 	uid varchar(9) references users on delete no action,
-	vip_signup_date timestamp not null ,
+	vip_signup_date date not null ,
 	vip_type varchar(2) references vip on delete set null on update cascade,
 	primary key(uid,vip_signup_date)
 );
