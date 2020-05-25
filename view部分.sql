@@ -11,7 +11,8 @@ where uid2 = 'u10001';
 
 --Ucoins
 create view Ucoins as
-select play_coins.uid, sum(play_coins.play_sum) + sum(in_coins.sum) - sum(ex_coins.sum)
+select play_coins.uid, 
+(sum(play_coins.play_sum) + sum(in_coins.sum) - sum(ex_coins.sum))as coins_cnt
 from
 (select uid, count(play_date)/5 as play_sum
 from play
@@ -32,20 +33,20 @@ where uid = 'u10001';
 
 --experience
 create view experience as
-select uid, 10*sum(count)
+select uid, (10*sum(count))as exp_sum
 from 
 (select uid, av, play_date, count(uid) 
 from play
 group by (uid, av, play_date))as diff
 group by uid;
 --使用方法
-select sum
+select exp_sum
 from experience
 where uid = 'u10001';
 
 --Ulevel
 create view Ulevel as
-select uid, (sum/100) as user_lv
+select uid, (exp_sum/100) as user_lv
 from experience;
 --使用方法
 select user_lv
