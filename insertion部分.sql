@@ -1,7 +1,9 @@
 -- insertion
--- 创建用户：uid统一格式为u-----, 昵称、性别、注册日期、是否为大会员随机。
+-- 创建用户：uid统一格式为u-----,
+--昵称、性别、注册日期、是否为大会员随机。
+--密码为10位随机字符串
 insert into users
-	values ('u10020','genius','male','2016-2-28','false',);
+	values ('u10020','genius','male','2016-2-28','false','d1783ydhi1');
 -- 创建分区：（初始化）
 insert into zones
 	values('01','donghua');
