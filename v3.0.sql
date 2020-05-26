@@ -5,7 +5,8 @@ create table Users(
 	Nickname varchar(20) not null,
 	Gender varchar(7) default 'unknown',check (Gender in ('male','female','unknown')),
 	Signup_date date not null,
-	VIP bool default false
+	VIP bool default false,
+	password varchar(10) not null
 );
 
 --zones
