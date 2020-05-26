@@ -2,9 +2,6 @@
 --按分区
 select av from works
 where zone_id = '01';
---up主
-select av from works
-where uid = 'u10001';
 --可以加在后面的附加条件
 --按创建时间（最新）
 order by works_create_date desc;
